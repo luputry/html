@@ -1,0 +1,82 @@
+<head>
+<style>
+    body{
+        border: 0;
+        display: flex;
+        height: 100vh;
+        width: 100vw;
+        align-items: center;
+        justify-content: center;
+    }
+    .box{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 1;
+    }
+    #anNiu{
+        margin-left: -50px;
+        margin-right: 10px;
+        color: pink;
+        border-radius: 50%;
+        height: 50px;
+        width: 50px;
+        text-align: center;
+        line-height: 30px;
+        cursor: pointer;
+    }
+    #shuRukuang{
+      border: 0;
+      border-bottom: 2px solid #fff;
+      border-radius: 0;
+      padding: 4px 2px;
+      display: block;
+      background: 0;
+      line-height: 1.5;
+      outline:none;
+      text-align: center;
+      transition: border-color 0.2s ease-in-out;
+      color: #fff;
+      font-size: 2rem;
+      max-width: 90%;}
+    #video-background{
+        position: fixed;
+        min-width: 100vw;
+        min-height: 100vh;
+        height: auto;
+        width: auto;
+        object-fit: cover;
+        z-index: -1;
+    }
+</style>
+</head>
+<body>
+    <video autoplay loop id="video-background">
+        <source src="灵梦.mp4" type="video/mp4">
+    </video>
+    <div class="box">
+        <input placeholder="最重要的事？" id="shuRukuang">
+        <span id="anNiu" onclick="change()">√</span>
+    </div>
+    <script>
+        let youshi=false;
+        function change() {
+            let anNiu = document.getElementById("anNiu");
+            let shuRukuang = document.getElementById("shuRukuang");
+    console.log('change function triggered'); // 确认函数是否被触发
+    if (youshi) {
+        youshi = false;
+        anNiu.innerText = "√";
+        shuRukuang.style.borderBottomColor = "#fff";
+        shuRukuang.value = "";
+        shuRukuang.readOnly = false;
+    } else {
+        youshi = true;
+        anNiu.innerText = "×";
+        console.log('Setting border color to transparent'); // 确认代码执行到这一步
+        shuRukuang.style.borderBottomColor = "transparent";
+        shuRukuang.readOnly = true;
+    }
+}
+    </script>
+</body>
